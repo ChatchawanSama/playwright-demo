@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:3000/admin/login');
+  await page.getByPlaceholder('Email').click();
+  await page.getByPlaceholder('Email').fill('admin2@gmail.com');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('password');
+  await page.getByRole('button', { name: 'SIGN IN' }).click();
+  await page.getByRole('link', { name: 'New Product' }).click();
+  await page.getByPlaceholder('Name').click();
+  await page.getByPlaceholder('Name').fill('TimeArise3');
+  await page.getByPlaceholder('SKU').click();
+  await page.getByPlaceholder('SKU').fill('timearise003');
+  await page.getByPlaceholder('Price').click();
+  await page.getByPlaceholder('Price').fill('36000');
+  await page.getByPlaceholder('Weight').fill('56');
+  await page.getByRole('paragraph').click();
+//   await page.locator('#images div').first().click();
+//   await page.locator('#images').getByRole('img').click();
+//   await page.locator('#images').setInputFiles('time.jpg');
+//   await page.locator('#file-input').setInputFiles('time.jpg');
+  await page.locator('#urlKey').click();
+  await page.locator('#urlKey').fill('timearise003');
+  await page.getByPlaceholder('Quantity').click();
+  await page.getByPlaceholder('Quantity').fill('1');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('link', { name: 'Products' }).click();
+  await page.getByRole('link', { name: 'TimeArise3' }).click();
+});
